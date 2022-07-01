@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es-MX">
+<head>
+<link th:href="@{assets/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{assets/css/custom.css}" rel="stylesheet" />
+<link th:href="@{assets/css/all.css}" rel="stylesheet" />
+<link rel="stylesheet"  type="text/css" th:href="@{/assets/css/login.css}">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+
+
+<body>
+
+<form style="text-align: center;" th:action="@{/Rclientes}" method="POST" class="Form">
+		<div class="clientes">
+			<div class="Rclientes-screen">
+				<div class="app-title">
+					<h1>Registro de clientes</h1>
+					<p class="text-danger" th:if="${error} != null" th:text="${error}"></p>
+				</div>
+	
+				<div class="Rcliente-form">
+					<div class="control-group">
+					<input type="text" id="firstName" name="NfirstName" class="Rcliente-field" value="" placeholder="First Name"
+					>
+					<label class="Rcliente-field-icon fui-user" for="Nombre-cliente"></label>
+					</div>
+					
+					
+					<div class="control-group">
+					<input type="text" id="segundoNombre" name="NLastname" class="Rcliente-field" value="" placeholder="LastName">
+					<label class="Rcliente-field-icon fui-user" for="Nombre-cliente"></label>
+					</div>
+					
+					<div class="control-group">
+					<input type="text" id="email" name="Nemail" class="Rcliente-field" value="" placeholder="email">
+					<label class="login-field-icon fui-user" for="Email-cliente"></label>
+					</div>
+					
+					<div class="control-group">
+					<input type="text" id="direccion" name="Ndireccion" class="Rcliente-field" value="" placeholder="Direccion">
+					<label class="login-field-icon fui-user" for="direccion-cliente"></label>
+					</div>
+					
+					<div class="control-group">
+					<input type="text" id="sucursal" name="Nsucursal" class="Rcliente-field" value="" placeholder="Sucursal">
+					<label class="login-field-icon fui-user" for="direccion-cliente"></label>
+					</div>
+			
+					
+	
+					<button type="submit" class="btn btn-primary btn-large btn-block" href="#">Registrar cliente</button>
+				</div>
+			</div>
+		</div>
+	</form>
+
+
+	
+
+</body>
+
+
+
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+	lang="es-MX">
+<div th:replace="layout/header :: estilos"></div>
+<body>
+	<div th:replace="layout/header :: header"></div>
+	<div class="d-flex" id="wrapper">
+		<div th:replace="layout/header :: menu"></div>
+		<div id="page-content-wrapper" style="width:100%;">
+			<!-- Page content-->
+			Registrar nueva pel&iacute;cula
+			
+			<div class="modal-header">Datos Generales</div>
+			
+			<form action="#" th:action="@{/film-register}" th:object="${film}">
+				
+				<label>T&iacute;tulo:</label>
+				<input type="text" th:field="*{title}" /><br/>
+				
+				<label>Descripci&oacute;n:</label>
+				<input type="text" th:field="*{description}" /><br/>
+				
+				<label>Duraci&oacute;n de la renta:</label>
+				<input type="text" th:field="*{rentalDuration}" /><br/>
+				
+				<label>Costo de renta:</label>
+				<input type="text" th:field="*{rentalRate}" /><br/>
+				
+				<label>Duraci&oacute;n de al pel&iacute;cula:</label>
+				<input type="text" th:field="*{length}" /><br/>
+				
+				<label>Costo de reemplazo:</label>
+				<input type="text" th:field="*{replacementCost}" /><br/>
+				
+				<label>Lenguaje:</label>
+				<input type="text" th:field="*{language}" /><br/>
+				
+				<label>Clasificaci&oacute;n:</label>
+				<input type="text" th:field="*{rating}" /><br/>
+				
+				<div class="modal-header">Datos adicionales</div>
+				
+				<label>Categor&iacute;a:</label>
+				
+				<select id="category-select" th:name="categoryId">
+				  <option th:each="category : ${categories}" 
+				          th:value="${category.id}" 
+				          th:text="${category.name}"></option>
+				</select><br/>
+				
+				<label>Actores:</label><br/>
+				
+				<input list="actor-list">
+				<datalist id="actor-list">
+				  <option th:each="actor : ${actors}" 
+				          th:value="${actor.id}" 
+				          th:text="${actor.firstName + ' ' + actor.lastName}"></option>
+				</datalist>  
+				
+				<button type="submit">Registrar</button>
+				
+			</form>
+			
+		</div>
+		
+
+	</div>
+	<div th:replace="layout/header :: footer"></div>
+	<div th:replace="layout/header :: scripts"></div>
+	<script th:src="@{assets/js/index.js}"></script>
+</body>
+
+</html>
