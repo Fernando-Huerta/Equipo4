@@ -12,7 +12,7 @@
 			
 			<div class="modal-header">Datos Generales</div>
 			
-			<form action="/" th:action="@{/film-register}" th:object="${film}" >
+			<form action="#" th:action="@{/film-register}" th:object="${film}">
 				
 				<label>T&iacute;tulo:</label>
 				<input type="text" th:field="*{title}" /><br/>
@@ -33,15 +33,10 @@
 				<input type="text" th:field="*{replacementCost}" /><br/>
 				
 				<label>Lenguaje:</label>
-				<select id="language-select" th:name="language">
-				  <option th:each="language : ${languages}" 
-				          th:value="${language.language_id}" 
-				          th:text="${language.name}"></option>
-				</select><br/>
+				<input type="text" th:field="*{language}" /><br/>
 				
 				<label>Clasificaci&oacute;n:</label>
 				<input type="text" th:field="*{rating}" /><br/>
-				
 				
 				<div class="modal-header">Datos adicionales</div>
 				

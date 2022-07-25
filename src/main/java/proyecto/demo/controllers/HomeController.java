@@ -30,7 +30,6 @@ import proyecto.demo.entities.Actor;
 import proyecto.demo.entities.CatalogoIndex;
 import proyecto.demo.entities.Category;
 import proyecto.demo.entities.Film;
-import proyecto.demo.entities.Language;
 import proyecto.demo.repository.CategoryRepository;
 import proyecto.demo.services.ActorService;
 import proyecto.demo.services.CategoryService;
@@ -159,16 +158,13 @@ public class HomeController {
 	public String registerFilmForm(Model model) {
 		List <Category> categories = categoryService.findAll();
 		List <Actor> actors = actorService.findAll();
-		List<Language> languages=languageService.findAll();
 
 		model.addAttribute("film", new Film());
 		model.addAttribute("categories", categories);
 		model.addAttribute("actors", actors);
-		model.addAttribute("languages", languages);
 		
 		return "/views/films";
 	}
-	
 	
 	@GetMapping(value="film-register")
 	public String registerFilm(@ModelAttribute("film") Film film,  HttpServletRequest request) {
