@@ -93,7 +93,7 @@ public class Film {
 	
 	private String rating;
 	
-	//private Date release_year;
+	//private String release_year;
 
 	public Integer getFilmId() {
 		return filmId;

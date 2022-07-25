@@ -1,5 +1,6 @@
 package proyecto.demo.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +15,15 @@ public class LanguageService implements ILanguageService{
 	@Autowired
 	private LanguageRepository languageRepository;
 	
+	public List <Language> findAll() {
+		return languageRepository.findAll();
+	}
+	
 	@Override
 	public Optional<Language> findById(Integer id) {
 		return languageRepository.findById(id);
 	}
+	
+	
 
 }
