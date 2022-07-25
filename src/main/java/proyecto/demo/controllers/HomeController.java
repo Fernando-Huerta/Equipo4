@@ -26,12 +26,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.lowagie.text.DocumentException;
 
-import proyecto.demo.entities.Actor;
 import proyecto.demo.entities.CatalogoIndex;
 import proyecto.demo.entities.Category;
 import proyecto.demo.entities.Film;
-import proyecto.demo.entities.Language;
-import proyecto.demo.repository.CategoryRepository;
 import proyecto.demo.services.ActorService;
 import proyecto.demo.services.CategoryService;
 import proyecto.demo.services.FilmService;
@@ -49,13 +46,7 @@ public class HomeController {
 	private CategoryService categoryService;
 	
 	@Autowired
-	private LanguageService languageService;
-	
-	@Autowired
 	private InventoryService inventoryService;
-	
-	@Autowired
-	private ActorService actorService;
 
 	@RequestMapping(value = {"/","index"})
 	public String index(Model model, HttpServletRequest request, HttpServletResponse response, Principal principal) {
@@ -153,28 +144,5 @@ public class HomeController {
 	}
 	
 	
-	
-	
-	@GetMapping(value="films")
-	public String registerFilmForm(Model model) {
-		List <Category> categories = categoryService.findAll();
-		List <Actor> actors = actorService.findAll();
-		List<Language> languages=languageService.findAll();
-
-		model.addAttribute("film", new Film());
-		model.addAttribute("categories", categories);
-		model.addAttribute("actors", actors);
-		model.addAttribute("languages", languages);
-		
-		return "/views/films";
-	}
-	
-	
-	@GetMapping(value="film-register")
-	public String registerFilm(@ModelAttribute("film") Film film,  HttpServletRequest request) {
-		System.out.println(film);
-		filmService.guardar(film);
-		return "/views/films";
-	}
 	
 }
